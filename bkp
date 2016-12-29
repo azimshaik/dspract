@@ -1,0 +1,61 @@
+package com.ds.azim;
+
+public class Node {
+	//Node has 1. Data Element 2. Next pointer
+	public int data;
+	public Node next;
+	//empty constructor 
+	public Node(){
+		//
+	}
+	public Node(int data){
+		this.data= data;
+		this.next = null;
+	}
+	public Node(int data, Node next){
+		this.data = data;
+		this.next = next;
+	}
+}
+
+package com.ds.azim;
+
+public class SingleLinkedList {
+	public Node head = null;
+	public Node tail = null;
+	public int length;
+	public SingleLinkedList(){
+		
+	}
+	public void insertAtFirst(int data){
+			head = new Node(data,head);
+	}
+	public void insertAtEnd(int data){
+		Node curr = head;
+		if(curr==null){
+			insertAtFirst(data);
+		}else{
+			while(curr.next!=null){
+				curr = curr.next;
+			}
+			Node temp = new Node(data);
+			curr.next = temp;
+		}
+	}
+	public void show(){
+		Node curr = head;
+		while(curr!=null){
+			System.out.print(curr.data+",");
+			curr = curr.next;
+		}
+	}
+	public static void main(String[] args){
+		SingleLinkedList sll = new SingleLinkedList();
+		sll.insertAtFirst(12);
+		sll.insertAtFirst(123);
+		sll.insertAtFirst(890);
+		sll.insertAtEnd(234);
+		sll.show();
+		
+	}
+}
